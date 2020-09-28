@@ -31,8 +31,11 @@ class MainController extends AppController
 
     $title = $_POST['title'];
     $pid = $_POST['pid'];
-
-    $model->add($title, $pid);
+    if ($title == '') {
+      $_SESSION['error'] = "Enter the title";
+    } else {
+      $model->add($title, $pid);
+    }
 
     redirect('/');
   }

@@ -13,7 +13,12 @@
 </head>
 
 <body>
-  
+  <?php if (isset($_SESSION['error'])) : ?>
+    <div class="alert alert-danger">
+      <?= $_SESSION['error'];
+      unset($_SESSION['error']); ?>
+    </div>
+  <?php endif; ?>
 
   <?php if ($catalog) : ?>
     <form style="margin: 50px;" class="mt 5" action="<?= BLOG ?>/main/add" method="post">
